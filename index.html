@@ -107,5 +107,15 @@
   </main>
 
   <script type="module" src="./main.js"></script>
+  <!-- registo do Service Worker (PWA offline) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registado:', reg.scope))
+          .catch(err => console.error('Erro SW:', err));
+      });
+    }
+  </script>
 </body>
 </html>

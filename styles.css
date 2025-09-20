@@ -135,3 +135,12 @@ canvas {
   aspect-ratio: 16 / 9; /* ou 4/3 se preferires */
   height: auto !important;
 }
+/* garante proporção/altura dos gráficos */
+.card canvas {
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  max-height: 360px;   /* opcional: teto */
+}
+@media (max-width: 640px) {
+  .card canvas { max-height: 280px; }
+}
