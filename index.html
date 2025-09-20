@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gestão Financeira</title>
+
+  <link rel="icon" href="./favicon.ico" />
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#065f46" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="app-header__inner">
+      <div class="brand">
+        <div class="brand__logo">💼</div>
+        <div>
+          <div class="brand__title">Gestão Financeira</div>
+          <div class="brand__subtitle">Controle das suas finanças</div>
+        </div>
+      </div>
+      <nav class="top-nav">
+        <a class="top-nav__item top-nav__item--active" href="#">Dashboard</a>
+        <a class="top-nav__item" href="#">Nova Transação</a>
+        <a class="top-nav__item" href="#">Transações</a>
+        <a class="top-nav__item" href="#">Configurações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- KPI cards -->
+    <section class="grid grid--kpi">
+      <article class="card kpi kpi--income">
+        <div class="kpi__title">Receitas Totais</div>
+        <div class="kpi__value" id="kpi-income">€0,00</div>
+        <div class="kpi__trend"><span class="pill pill--up" id="kpi-income-trend">+0% vs mês anterior</span></div>
+      </article>
+
+      <article class="card kpi kpi--expense">
+        <div class="kpi__title">Despesas Totais</div>
+        <div class="kpi__value" id="kpi-expense">€0,00</div>
+        <div class="kpi__trend"><span class="pill pill--down" id="kpi-expense-trend">+0% vs mês anterior</span></div>
+      </article>
+
+      <article class="card kpi kpi--savings">
+        <div class="kpi__title">Poupanças</div>
+        <div class="kpi__value" id="kpi-savings">€0,00</div>
+        <div class="kpi__trend"><span class="pill pill--up" id="kpi-savings-trend">+0% vs mês anterior</span></div>
+      </article>
+
+      <article class="card kpi kpi--balance">
+        <div class="kpi__title">Saldo Líquido</div>
+        <div class="kpi__value" id="kpi-balance">€0,00</div>
+        <div class="kpi__trend"><span class="pill" id="kpi-balance-note"> </span></div>
+      </article>
+    </section>
+
+    <!-- metas -->
+    <section class="grid grid--goals">
+      <article class="card goal">
+        <div class="goal__header">
+          <div class="goal__title">Meta de Poupança Mensal</div>
+          <div class="goal__values"><span id="goal-saved">€0,00</span><span>€500</span></div>
+        </div>
+        <div class="progress"><div id="goal-progress" class="progress__bar" style="width:0%"></div></div>
+        <div class="goal__hint" id="goal-hint">0% da meta</div>
+      </article>
+
+      <article class="card goal">
+        <div class="goal__header">
+          <div class="goal__title">Fundo de Emergência</div>
+          <div class="goal__values"><span id="emergency-saved">€0,00</span><span>€1203,21</span></div>
+        </div>
+        <div class="progress"><div id="emergency-progress" class="progress__bar progress__bar--blue" style="width:0%"></div></div>
+        <div class="goal__hint" id="emergency-hint">0 meses de despesas</div>
+      </article>
+
+      <article class="card goal">
+        <div class="goal__header">
+          <div class="goal__title">Gastos Regulares</div>
+          <div class="goal__values"><span id="regular-expenses">€0,00</span></div>
+        </div>
+        <div class="badge" id="regular-expenses-badge">Normal</div>
+      </article>
+    </section>
+
+    <!-- charts -->
+    <section class="grid grid--charts">
+      <article class="card">
+        <div class="section-title">📅 Análise Temporal</div>
+        <canvas id="timeChart" height="220"></canvas>
+      </article>
+
+      <article class="card">
+        <div class="section-title">🥧 Distribuição de Despesas</div>
+        <canvas id="pieChart" height="220"></canvas>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
